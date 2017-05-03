@@ -1,4 +1,4 @@
-# Laravel Auto validation
+# Laravel Auto-validation
 This package will allow you to remove all manual validations from your controllers.
 
 ## Installation
@@ -16,7 +16,7 @@ Add the service provider to `config/app.php` under `providers`:
 ],
 ```
 
-Add the trait to your base controller:
+Add the trait to your base controller `App\Http\Controllers\Controller`:
 
 ```php
 use Bekusc\Validation\Traits\AutoValidation;
@@ -30,7 +30,7 @@ class Controller extends BaseController
 Publish config:
 
 ```
-php artisan vendor:publish --provider="Bekusc\Validation\AutoValidationProvider" --tag="config"
+php artisan vendor:publish --provider="Bekusc\Validation\AutoValidationProvider"
 ```
 
 Update config file with your validation rules in:
@@ -77,7 +77,7 @@ class UserController extends Controller
     public function register(Request $request)
     {
         // the request will be validated automatically
-        $request->user()->create($request->all());
+        User::create($request->all());
     }
 
     public function update(Request $request)
