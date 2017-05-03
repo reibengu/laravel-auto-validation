@@ -1,0 +1,16 @@
+
+{
+    "name": "bekusc/laravel-auto-validation",
+    "description": "",
+    "authors": [
+        {
+            "name": "Rei Bengu",
+            "email": "bengusc@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Bekusc\\Validation\\": "src/"
+        }
+    }
+}
