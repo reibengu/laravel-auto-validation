@@ -2,16 +2,17 @@
 This package will allow you to remove all manual validations from your controllers.
 
 ## Installation
-Simply go to your project directory where the `composer.json` file is located and type:
+Simply go to your project directory where the `composer.json` file is located and type in your terminal:
 
 ```sh
 composer require bekusc/laravel-auto-validation
 ```
 
-Add the service provider to `config/app.php` under `providers`:
+Add the service provider to your providers array in `config/app.php`:
 
 ```php
 'providers' => [
+    // ...
     Bekusc\Validation\AutoValidationProvider::class,
 ],
 ```
@@ -62,8 +63,8 @@ $rules = [
                 'gender'   => 'required|in:male,female',
                 'birthday' => 'required|date_format:Y-n-j',
             ];
-        }
-    ]
+        },
+    ],
 ];
 
 return ['rules' => $rules];
@@ -76,13 +77,13 @@ class UserController extends Controller
 {
     public function register(Request $request)
     {
-        // the request will be validated automatically
+        // The request will be validated automatically
         User::create($request->all());
     }
 
     public function update(Request $request)
     {
-        // the request will be validated automatically
+        // The request will be validated automatically
         $request->user()->update($request->all());
     }
 }
