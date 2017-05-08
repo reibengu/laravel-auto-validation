@@ -8,7 +8,7 @@ Simply go to your project directory where the `composer.json` file is located an
 composer require bekusc/laravel-auto-validation
 ```
 
-Add the service provider to your providers array in `config/app.php`:
+Add the service provider to your `providers` array in `config/app.php`:
 
 ```php
 'providers' => [
@@ -77,14 +77,17 @@ class UserController extends Controller
 {
     public function register(Request $request)
     {
-        // The request will be validated automatically
+        // The incoming request is valid...
         User::create($request->all());
     }
 
     public function update(Request $request)
     {
-        // The request will be validated automatically
+        // The incoming request is valid...
         $request->user()->update($request->all());
     }
 }
 ```
+
+## Note
+If validation fails, a redirect response will be generated to send the user back to their previous location. The errors will also be flashed to the session so they are available for display. If the request was an AJAX request, a HTTP response with a 422 status code will be returned to the user including a JSON representation of the validation errors.
