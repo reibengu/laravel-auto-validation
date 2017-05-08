@@ -58,7 +58,7 @@ trait AutoValidation
             $namespace = 'App\Http\Controllers';
         }
 
-        $class_name = ltrim($class, $namespace);
+        $class_name = substr($class, strlen($namespace) + 1);
 
         return config("validation.rules.{$class_name}.{$method}");
     }
